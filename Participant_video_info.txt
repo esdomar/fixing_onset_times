@@ -1,0 +1,152 @@
+Participants wihout pauses or attention grabbers (all events on time):
+
+
+Participant: 4
+Participant: 7
+Participant: 8
+Participant: 10
+Participant: 11
+Participant: 14
+Participant: 16
+Participant: 18
+Participant: 20
+Participant: 25
+Participant: 26
+Participant: 28
+Participant: 29
+Participant: 30
+Participant: 31
+Participant: 34
+Participant: 35
+Participant: 43
+Participant: 45
+Participant: 46
+Participant: 47
+Participant: 50
+
+
+Participants with some mismatch in event timing (usually pauses):
+
+Participant: 12
+video:3
+[0]
+
+Participant: 22
+video:2
+[0]
+video:4
+[3]
+
+Participant: 36
+video:3
+[0, 20]
+
+Participant: 44
+video:2
+[16]
+video:4
+[0]
+
+Participant: 48
+video:1
+[21]
+video:2
+[10]
+video:4
+[0, 1]
+
+Participant: 49
+video:1
+[11]
+video:2
+[0]
+video:3
+[0, 1]
+
+Participants with attention grabber problem (event times need to be fixed)
+
+Participant: 5
+video:2
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Participant: 6
+video:2
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+Participant: 9
+video:2
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+
+
+Participant: 13
+video:1
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Participant: 15
+video:2
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+video:4
+[0]
+
+Participant: 19
+video:2
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+Participant: 21
+video:3
+[7]
+video:4
+[0, 1, 2, 3, 4, 5, 6]
+
+Participant: 23
+video:3
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+Participant: 24
+video:3
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+
+Participant: 27
+video:2
+[20]
+video:3
+[0, 1, 2, 3, 4, 5]
+
+Participant: 17
+video:1
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+
+Participant: 32
+video:3
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+
+Participant: 37
+video:1
+[0, 1, 2, 3, 4, 5, 6, 7, 8]
+video:2
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+video:4
+[7]
+
+Participant: 38
+video:2
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+video:3
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+video:4
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Participant: 40
+video:1
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+video:2
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+Participant: 41
+video:3
+[0, 1, 2, 3, 4, 5, 6, 19]
+
+Participant: 42
+video:2
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+video:4
+[0, 1, 2, 3, 4, 5, 6, 7]
