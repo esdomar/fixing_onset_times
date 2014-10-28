@@ -36,7 +36,6 @@ p_without_problems = []
 p_with_problem = []
 
 participants = ['P6']
-f1 = open('Events_to_delete.txt', 'w')
 for participant in participants:
     #try:
         ''' Participant info'''
@@ -122,8 +121,7 @@ for participant in participants:
             eeg_final_times.append(tm)
             #print info about extra events: video, time starts and number of events
             if eeg_extra_events[order]:
-                print 'extra events in video', int(video), ':', eeg_extra_events[order][2], 'events starting at', eeg_extra_events[order][0]
-                f1.write(str(participant) + '\t' + 'extra events in video' + str(video) + ':' + str(eeg_extra_events[order][2]) + '\t' + 'events starting at' + str(eeg_extra_events[order][0]) + '\n')
+                print 'extra events in video', int(video), ':', eeg_extra_events[order][2], 'events starting at', eeg_extra_events[order][3]
 
         #Save the final eeg events into a txt file
         for i, v in enumerate(video_order):
