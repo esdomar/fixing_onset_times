@@ -30,19 +30,20 @@ def calculate_condition(participant):
     else:
         return 1
 
-general_path = 'C:\GC data'
+general_path = 'C:\GC data\Participant_data'
 #participants = os.listdir(general_path)
 p_without_problems = []
 p_with_problem = []
 
-participants = ['P37']
-
+participants = ['P6']
+f1 = open('Events_to_delete.txt', 'w')
 for participant in participants:
     #try:
         ''' Participant info'''
         print participant
         part_path = general_path + os.sep + participant
         f = open(part_path + os.sep + participant + '_new_eeg_video_events.txt', 'w')
+
 
         #Calculate A or B sequence
         cond = calculate_condition(participant)
@@ -53,7 +54,7 @@ for participant in participants:
 
         ''' Load Files '''
         #EEG events
-        eeg_events_path = part_path + os.sep + find_files(part_path, 'CM_', '.txt')
+        eeg_events_path = part_path + os.sep + find_files(part_path, 'CM_', '.txt')[0]
         eeg_all_events = np.loadtxt(eeg_events_path, dtype=np.dtype([('event', (np.str, 20)), ('timestamp', np.int)]))
         eeg_events = []
         eeg_times = []
@@ -62,13 +63,8 @@ for participant in participants:
                 eeg_events.append(event['event'])
                 eeg_times.append(event['timestamp'])
         #et events
-        et_events_path = part_path + os.sep + find_files(part_path, 'onset_video', 'txt')
+        et_events_path = part_path + os.sep + find_files(part_path, 'onset_video', 'txt')[0]
         et_events = np.loadtxt(et_events_path, dtype=np.dtype([('video', np.float_), ('timestamp', np.float_)]))
-
-        #Delays between video events
-        #video_files_path = 'C:\Users\edz\OneDrive @ Tobii Technology AB\PhD\Chapter 2 - Gaze Contingency\Analysis/video_onset_fixing'
-        #video_file = 'event_delays_1_to_4_A_and_B.csv'
-        #video_codes = np.loadtxt(video_files_path + os.sep + video_file, dtype=np.dtype(np.float), delimiter=';')
 
         ''' split events in videos '''
         #Videos order
@@ -101,6 +97,7 @@ for participant in participants:
         for order, video in enumerate(video_order):
             group_started = 0
             count = 0
+            starting_event = -1
             ev = [eeg_events_split[order][0]]
             tm = [eeg_times_split[order][0]]
             for i in range(1, len(eeg_events_split[order])):
@@ -109,11 +106,12 @@ for participant in participants:
                         time_sec = (eeg_times_split[order][i-1]/float(500)) / 60
                         time_starts = int(time_sec) + ((time_sec - int(time_sec))*0.6)
                         group_started = 1
+                        starting_event = i
                         ev.pop(-1)
                         tm.pop(-1)
                     count += 1
                 elif group_started:
-                    eeg_extra_events[order] = [i, count, time_starts]
+                    eeg_extra_events[order] = [starting_event, i, count, time_starts]
                     group_started = 0
                     ev.append(eeg_events_split[order][i])
                     tm.append(eeg_times_split[order][i])
@@ -124,7 +122,8 @@ for participant in participants:
             eeg_final_times.append(tm)
             #print info about extra events: video, time starts and number of events
             if eeg_extra_events[order]:
-                print 'extra events in video', int(video), ':', eeg_extra_events[order][1], 'events starting at', eeg_extra_events[order][2]
+                print 'extra events in video', int(video), ':', eeg_extra_events[order][2], 'events starting at', eeg_extra_events[order][0]
+                f1.write(str(participant) + '\t' + 'extra events in video' + str(video) + ':' + str(eeg_extra_events[order][2]) + '\t' + 'events starting at' + str(eeg_extra_events[order][0]) + '\n')
 
         #Save the final eeg events into a txt file
         for i, v in enumerate(video_order):
